@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469710273916152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.66, z: 0}
+  m_LocalPosition: {x: 0.997, y: 0.647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -189,7 +189,6 @@ MonoBehaviour:
   xPush: 2
   yPush: 15
   ballSounds:
-  - {fileID: 8300000, guid: 7995e9f5245f875419881f3dc7128714, type: 3}
   - {fileID: 8300000, guid: 32f9fa6af2d784149b5f80ce9f533390, type: 3}
   - {fileID: 8300000, guid: b2a77868d231bbd40ab26fdbb1afe296, type: 3}
   - {fileID: 8300000, guid: 5b5d9023060bf3242bfed0fa504d6681, type: 3}
