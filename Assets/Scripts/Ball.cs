@@ -9,11 +9,11 @@ public class Ball : MonoBehaviour {
     [SerializeField] Paddle paddle1;    
     [SerializeField] float xPush = 2f; //Vel. de lançamento em X
     [SerializeField] float yPush = 15f; //Vel. de lançamento em Y 
-    [SerializeField] AudioClip[] ballSounds; 
+    [SerializeField] AudioClip[] ballSounds;       
 
     //State
     Vector2 paddleToBallVector;
-    bool hasStarted = false; //Var. booleana para saber se o jogo começou
+    bool hasStarted = false; //Var. booleana para saber se o jogo começou    
 
     //Cached component references
     AudioSource myAudioSource;
@@ -31,9 +31,8 @@ public class Ball : MonoBehaviour {
         if(!hasStarted)
         {            
             LockBallToPaddle();
-            LaunchOnMouseClick();
-        }
-              
+            LaunchOnMouseClick();            
+        }              
     }   
 
     private void LockBallToPaddle() //Prende a bola ao Paddle
@@ -56,12 +55,17 @@ public class Ball : MonoBehaviour {
         }        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)        
     {
         if(hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0,ballSounds.Length)];
-            myAudioSource.PlayOneShot(clip);
+            myAudioSource.PlayOneShot(clip);                      
+        }
+        
+        if(collision.gameObject.CompareTag("Breakable"))
+        {
+            
         }
         
     }
