@@ -16,6 +16,7 @@ public class SceneLoader : MonoBehaviour {
     public void LoadStartScene()
     {
         SceneManager.LoadScene(0); //Index = 0, é a nossa primeira cena
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void QuitGame()

@@ -22,7 +22,7 @@ public class Block : MonoBehaviour {
 
     private void DestroyBlock()
     {
-        FindObjectOfType<GameStatus>().AddToScore();
+        FindObjectOfType<GameSession>().AddToScore();
         AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position); //Escolhemos a Camera pois assim o volume do audio será alto
         Destroy(gameObject);
         level.BlockDestroyed();
