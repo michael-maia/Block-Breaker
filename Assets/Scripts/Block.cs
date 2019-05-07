@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour {
 
     [SerializeField] AudioClip breakSound;
+    [SerializeField] GameObject blockSparklesVFX;
 
     //Cached reference
     Level level;
@@ -17,14 +18,23 @@ public class Block : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) //collision = Nome do objeto que colidiu com o Bloco
     {
-        DestroyBlock();
+        DestroyBlock();        
     }
 
-    private void DestroyBlock()
-    {
-        FindObjectOfType<GameSession>().AddToScore();
-        AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position); //Escolhemos a Camera pois assim o volume do audio será alto
+    private void DestroyBlock() {
+        PlayBlockDestroySFX();
         Destroy(gameObject);
         level.BlockDestroyed();
+        TriggerSparklesVFX();
+    }
+
+    private void PlayBlockDestroySFX() {
+        FindObjectOfType<GameSession>().AddToScore();
+        AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position); //Escolhemos a Camera pois assim o volume do audio será alto
+    }
+
+    private void TriggerSparklesVFX() { //Executa o efeito especial de particulas
+        GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
+        Destroy(sparkles,2); //Devemos usar o "sparkles" ao invés do "blockSparklesVFX" pois é a instância desse game object
     }
 }
