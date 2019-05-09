@@ -20,7 +20,7 @@ public class Block : MonoBehaviour {
     {
         DestroyBlock();        
     }
-
+    
     private void DestroyBlock() {
         PlayBlockDestroySFX();
         Destroy(gameObject);
@@ -33,7 +33,8 @@ public class Block : MonoBehaviour {
         AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position); //Escolhemos a Camera pois assim o volume do audio será alto
     }
 
-    private void TriggerSparklesVFX() { //Executa o efeito especial de particulas
+    //Executa o efeito especial de particulas
+    private void TriggerSparklesVFX() { 
         GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles,2); //Devemos usar o "sparkles" ao invés do "blockSparklesVFX" pois é a instância desse game object
     }
