@@ -15,7 +15,7 @@ public class Level : MonoBehaviour {
         sceneLoader = FindObjectOfType<SceneLoader>(); //Procura pelo script e não pelo GameObject
     }
 
-    public void CountBreakableBlocks()
+    public void CountBlocks()
     {
         breakableBlocks++;
     }

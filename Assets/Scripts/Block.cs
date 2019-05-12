@@ -10,15 +10,23 @@ public class Block : MonoBehaviour {
     //Cached reference
     Level level;
 
-    private void Start()
-    {
+    private void Start() {
+        CountBreakableBlocks();
+    }
+
+    private void CountBreakableBlocks() {
         level = FindObjectOfType<Level>(); //Procura pelo script e não pelo GameObject
-        level.CountBreakableBlocks(); //Cada instância da classe Block vai ativar este método do qual vai adicionar +1 ao total de blocos que podemos destruir
+        if(tag == "Breakable") {
+            level.CountBlocks(); //Cada instância da classe Block vai ativar este método do qual vai adicionar +1 ao total de blocos que podemos destruir
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //collision = Nome do objeto que colidiu com o Bloco
     {
-        DestroyBlock();        
+        if(tag == "Breakable") {
+            DestroyBlock();
+        }
+              
     }
     
     private void DestroyBlock() {
