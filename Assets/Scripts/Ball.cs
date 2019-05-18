@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour {
     void Start ()
     {        
         paddleToBallVector = transform.position - paddle1.transform.position; //Posição da bola em relação ao paddle
+        //Queremos encontrar o componente do script Ball
         myAudioSource = GetComponent<AudioSource>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
 	}

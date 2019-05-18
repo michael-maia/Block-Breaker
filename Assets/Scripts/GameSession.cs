@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour {
     [Range(0.1f,10f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlockDestroyed = 83;
     [SerializeField] Text scoreText; //O tipo Text serve para conectarmos o Text Object no inspector no Unity Editor
+    [SerializeField] bool isAutoPlayEnabled;
 
     //State Variables
     [SerializeField] int currentScore = 0;
@@ -45,5 +46,9 @@ public class GameSession : MonoBehaviour {
         else {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public bool IsAutoPlayEnabled() { //A função vai retornar o valor da variável booleana para impedir a alteração do valor dela
+        return isAutoPlayEnabled;
     }
 }
