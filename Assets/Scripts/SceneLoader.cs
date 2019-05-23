@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
@@ -23,4 +21,13 @@ public class SceneLoader : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void GameSettings() {
+        SceneManager.LoadScene("Configuration");
+    }
+
+    public void ReturnToStartMenu() {
+        SceneManager.LoadScene("StartMenu");
+    }
+
 }

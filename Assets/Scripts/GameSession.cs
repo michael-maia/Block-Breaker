@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI; //Necessário para a variável de tipo Text
 
 public class GameSession : MonoBehaviour {
